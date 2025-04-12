@@ -1,6 +1,7 @@
 import yfinance as yf
 import requests
 import feedparser
+import urllib.request
 import praw
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
@@ -11,6 +12,14 @@ import ta
 from env import REDDIT_CLIENT_ID, REDDIT_SECRET, REDDIT_USER_AGENT
 from collections import OrderedDict
 import streamlit as st 
+
+try:
+    import ssl
+    import certifi
+    SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    print("❌ certifi not found. Run: pip install certifi")
+    raise
 
 ######### cardiffnlp/twitter-roberta-base-sentiment pre-trained model #########
 tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment")
@@ -130,8 +139,24 @@ def get_price_and_indicators(asset, days=60):
 @st.cache_data(ttl=900)  # cache for 15 minutes
 def fetch_google_news_articles(query, limit=10):
     encoded_query = quote_plus(query)
-    url = f"https://news.google.com/rss/search?q={encoded_query}+when:1d&hl=en-US&gl=US&ceid=US:en"
+    url = f"https://news.google.com/rss/search?q=SPY+OR+S%26P500&hl=en-US&gl=US&ceid=US:en"
+    print(f"🔍 Fetching RSS from: {url}")
     feed = feedparser.parse(url)
+    print(f"📦 Entries fetched: {len(feed.entries)}")
+
+    req = urllib.request.Request(
+        url,
+        data=None,
+        headers={'User-Agent': 'Mozilla/5.0'}
+    )
+    with urllib.request.urlopen(req, context=SSL_CONTEXT) as response:
+        raw_data = response.read()
+
+    feed = feedparser.parse(raw_data)
+    print(f"📦 Entries fetched: {len(feed.entries)}")
+    if feed.bozo:
+        print(f"❌ Bozo Exception: {feed.bozo_exception}")
+
     articles = []
 
     for entry in feed.entries[:limit]:
