@@ -33,10 +33,10 @@ python3.11 -m venv myenv
 source myenv/bin/activate
 pip install -r requirements.txt
 
-3a. Run the app:
+3. Run the app:
 python "invest app.py"
 
-3b. or use streamlit for a prettier interface:
+4. or use streamlit for a prettier interface:
 streamlit run streamlit_app.py   
 
 
