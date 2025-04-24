@@ -26,17 +26,20 @@ Getting Started
 
 1. Clone the repo:
 git clone https://github.com/yourusername/asset-sentiment-tracker.git
+
 cd asset-sentiment-tracker
 
-2. Set up the virtual environment:
+3. Set up the virtual environment:
 python3.11 -m venv myenv
+
 source myenv/bin/activate
+
 pip install -r requirements.txt
 
-3. Run the app:
+5. Run the app:
 python "invest app.py"
 
-4. or use streamlit for a prettier interface:
+6. or use streamlit for a prettier interface:
 streamlit run streamlit_app.py   
 
 
