@@ -1,7 +1,9 @@
-📊 Asset Sentiment Tracker
+Asset Sentiment Tracker
+
 Real-time sentiment analysis for financial assets from news and Reddit
 
 Overview
+
 Asset Sentiment Tracker is a Python-based command-line tool that analyzes real-time sentiment for major financial assets such as SPY, Bitcoin (BTC), and Gold.
 
 It pulls and processes:
@@ -13,13 +15,15 @@ It pulls and processes:
 
 This tool helps you monitor the market mood and identify trends across news and online investor communities.
 
-🔍 Features
+Features
+
 - Live sentiment breakdown from both News and Reddit
 - Displays real-time prices for selected assets
 - Combines multiple sentiment scores into a clear, readable summary
 - Easily extendable to support more assets or data sources
 
-🚀 Getting Started
+Getting Started
+
 1. Clone the repo:
 git clone https://github.com/yourusername/asset-sentiment-tracker.git
 cd asset-sentiment-tracker
@@ -33,7 +37,7 @@ pip install -r requirements.txt
 python "invest app.py"
 
 
-📦 Requirements:
+Requirements:
 
 snscrape
 pandas
@@ -42,7 +46,7 @@ requests
 certifi
 
 
-💡 Example Output:
+Example Output:
 
 Asset   Price (USD)
 SPY     505.28
