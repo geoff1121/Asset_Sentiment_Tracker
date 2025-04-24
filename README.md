@@ -36,6 +36,11 @@ pip install -r requirements.txt
 3. Run the app:
 python "invest app.py"
 
+or use streamlit for a prettier interface
+
+streamlit run streamlit_app.py   
+
+
 
 Requirements:
 
@@ -44,7 +49,7 @@ pandas
 textblob
 requests
 certifi
-
+streamlit
 
 Example Output:
 
