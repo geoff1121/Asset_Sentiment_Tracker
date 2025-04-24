@@ -33,7 +33,8 @@ pip install -r requirements.txt
 python "invest app.py"
 
 
-📦 Requirements
+📦 Requirements:
+
 snscrape
 pandas
 textblob
@@ -41,7 +42,8 @@ requests
 certifi
 
 
-💡 Example Output
+💡 Example Output:
+
 Asset   Price (USD)
 SPY     505.28
 BTC     83,521.00
@@ -57,11 +59,13 @@ Gold News Sentiment: -0.05
 Gold Reddit Sentiment: +0.02
 
 
-⚠ Known Limitations
+⚠ Known Limitations:
+
 - Twitter sentiment is temporarily disabled due to scraping limitations.
 - Sentiment engine is basic (TextBlob); advanced models can be integrated.
 
-Roadmap
+Roadmap:
+
 - Integrate Twitter/X via official API
 - Support more assets (e.g. ETH, TSLA, NVDA)
 - Add interactive charts and visual sentiment trends
