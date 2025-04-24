@@ -13,7 +13,7 @@ It pulls and processes:
 - Asset price data
 - Sentiment scores using NLP
 
-This tool helps you monitor the market mood and identify trends across news and online investor communities.
+This tool helps you monitor the market mood and identify trends across news and subreddits.
 
 Features
 
